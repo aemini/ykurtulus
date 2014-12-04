@@ -47,7 +47,6 @@ float standartDeviation(int numbers[], int numbersCount) {
 }
 
 int* arraySort(int numbers[], int numbersCount) {
-	//int result = numbers[];
 	int i, k = 0, last = numbersCount, max = 0;
 	int current, maxContainer;
 	int count = 0;
@@ -124,9 +123,6 @@ int main(void) {
 	int sayilar[] = {2, 5, 1, 2, 7, 13, 15, 9, 4, 8};
 	int i;
 	int elemanSayisi = sizeof(sayilar)/sizeof(sayilar[0]);
-	//int* sirali = arraySort(sayilar, elemanSayisi);
-	//float ao, ho, ss, medyan, hoBirim, ssBirim;
-	//float sapmaToplam = 0;
 
 	printf("+-------------------------------+\n");
 	printf("| Ortalama hesaplama fasilitesi |\n");

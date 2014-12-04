@@ -67,24 +67,22 @@ int* arraySort(int numbers[], int numbersCount) {
 		count++;
 	}
 
-	for(i = 0; i < numbersCount; i++) {
-		printf("%d\n", numbers[i]);
-	}
-
 	return numbers;
 }
 
 float findMedian(int numbers[], int numbersCount) {
 	int foo;
 	float median;
+	/*
+	 * Dizideki eleman sayisi tek ise ortadaki deger medyandir
+	 * Cift sayida eleman varsa ortadaki iki elemanin
+	 * aritmetik ortalamasi alinacak.
+	 */
 	if(numbersCount % 2 == 1) {
-		//tek sayi
 		foo = floor(numbersCount / 2);
 		median = numbers[foo];
-		printf("ortadaki sonucu goster %d. sonuc\n", foo);
 	} else {
 		int a, b;
-		//cift sayi
 		foo = numbersCount / 2;
 		a = numbers[foo--];
 		b = numbers[foo];
@@ -93,19 +91,52 @@ float findMedian(int numbers[], int numbersCount) {
 	return median;
 }
 
+float findMod(int numbers[], int numbersCount) {
+	int values[numbersCount];
+	int value;
+	int* sorted = arraySort(numbers, numbersCount);
+	int i = 0, before = -1, count = 1, mod, max = 0;
+	/*
+	 * FIXME Daha iyi bir yontem bulamadim
+	 * siralanmis diziyi listeleyip bir onceki deger ile karsilastiriyorum
+	 */
+
+	for(i = 0; i < numbersCount; i++) {
+		if(sorted[i] == before) {
+			//bir onceki degerle ayni, dolayisiyla tekrar etmis
+			count++;
+			if(count > max) {
+				//en buyuk tekrar degerinden buyuk ise ezelim
+				max = count;
+				mod = sorted[i];
+			}
+		} else {
+			//tekrar yok, yeni bir deger.
+			count = 1;
+		}
+		before = sorted[i];
+	}
+
+	return mod;
+}
+
 int main(void) {
 	int sayilar[] = {2, 5, 1, 2, 7, 13, 15, 9, 4, 8};
-	int i, toplam = 0;
+	int i;
 	int elemanSayisi = sizeof(sayilar)/sizeof(sayilar[0]);
-	int* sirali = arraySort(sayilar, elemanSayisi);
-	float ao, ho, ss, medyan, hoBirim, ssBirim;
-	float sapmaToplam = 0;
+	//int* sirali = arraySort(sayilar, elemanSayisi);
+	//float ao, ho, ss, medyan, hoBirim, ssBirim;
+	//float sapmaToplam = 0;
 
-	printf("AO: %.2f\n", arithmeticAvg(sayilar, elemanSayisi));
-	printf("HO: %.2f\n", harmonicAvg(sayilar, elemanSayisi));
-	printf("SS: %.2f\n", standartDeviation(sayilar, elemanSayisi));
-	printf("Mod:\n");
-	printf("Medyan: %.2f\n", findMedian(sayilar, elemanSayisi));
+	printf("+-------------------------------+\n");
+	printf("| Ortalama hesaplama fasilitesi |\n");
+	printf("+-------------------------------+\n");
+	printf("| Aritmetik Ortalama :     %.2f |\n", arithmeticAvg(sayilar, elemanSayisi));
+	printf("| Harmonik Ortalama  :     %.2f |\n", harmonicAvg(sayilar, elemanSayisi));
+	printf("| Standart Sapma     :     %.2f |\n", standartDeviation(sayilar, elemanSayisi));
+	printf("| Mod                :     %.2f |\n", findMod(sayilar, elemanSayisi));
+	printf("| Medyan             :     %.2f |\n", findMedian(sayilar, elemanSayisi));
+	printf("+-------------------------------+\n");
 
 	return 0;
 }

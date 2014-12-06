@@ -3,9 +3,9 @@
 Verilen sayıların aritmetik ortalama, harmonik ortalama, standart sapma, medyan ve mod'unu hesaplamayla ilgili program yazılması.
 
 ## Ornek cikti:
-+-------------------------------+
-| Ortalama hesaplama fasilitesi |
-+-------------------------------+
++-------------------------------+<br />
+| Ortalama hesaplama fasilitesi |<br />
++-------------------------------+<br />
 | Aritmetik Ortalama :     6.60 |
 | Harmonik Ortalama  :     3.36 |
 | Standart Sapma     :     4.50 |

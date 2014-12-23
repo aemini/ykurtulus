@@ -2,13 +2,7 @@
 
 Verilen sayıların aritmetik ortalama, harmonik ortalama, standart sapma, medyan ve mod'unu hesaplamayla ilgili program yazılması.
 
-## Ornek cikti:
-+-------------------------------+
-| Ortalama hesaplama fasilitesi |
-+-------------------------------+
-| Aritmetik Ortalama :     6.60 |
-| Harmonik Ortalama  :     3.36 |
-| Standart Sapma     :     4.50 |
-| Mod                :     2.00 |
-| Medyan             :     6.00 |
-+-------------------------------+
+## Zayıflıklar
+
+* Sayılar ödevin içerisinde verilmişti. Kullanıcıdan herhangi bir girdi beklenmemektedir. İstenen böyleydi, sorgulamadım.
+* Soruda dizinin mod'u hesaplanırken en çok tekrar eden eleman sayısı birden fazla ise (tekrar sayıları eşit) nasıl davranılması gerektiği belirtilmemiş. Bu örnekte tekrar eden en küçük değer sonuca bastırılıyor. Bu konu aydınlatılırsa olması gerektiği hale getirilebilir.
